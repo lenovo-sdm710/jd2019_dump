@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- This file is used to define the mappings between lower-level system
+     user and group IDs and the higher-level permission names managed
+     by the platform.
+
+     Be VERY careful when editing this file!  Mistakes made here can open
+     big security holes.
+-->
+<permissions>
+
+    <!-- These are the standard packages that are white-listed to always have internet
+         access while in power save mode, even if they aren't in the foreground. -->
+    <allow-in-power-save package="com.zui.sdac" />
+    <allow-in-power-save package="com.zui.auservice" />
+    <allow-in-power-save package="com.zui.xlog" />
+    <allow-in-power-save package="com.zui.bugtogo" />
+
+    <!-- SHAREit app and CloudService, CloudService package name :  com.zui.cloudservice-->
+    <allow-permission name="android.permission.INSTALL_PACKAGES" signature="B7:72:D8:8D:38:BF:2A:4A:E2:21:A5:1C:5B:62:4D:A1:71:44:75:BD" />
+
+    <!-- LenovoStore app require INSTALL_PACKAGES,DELETE_PACKAGES,MOVE_PACKAGES and PACKAGE_USAGE_STATS,split by :-->
+    <!-- LenovoStore package name : com.lenovo.leos.appstore -->
+    <allow-permission name="android.permission.INSTALL_PACKAGES:android.permission.DELETE_PACKAGES:android.permission.MOVE_PACKAGES:android.permission.PACKAGE_USAGE_STATS" signature="13:F4:EF:26:B5:05:5E:94:F6:81:93:60:C3:E5:B2:BA:D6:5D:3E:88"/>
+
+    <!-- ZUIO-18177 grant permission to LenovoVoice ,  package name : com.lenovo.menu_assistant-->
+    <allow-permission name="android.permission.PEERS_MAC_ADDRESS" signature="13:F4:EF:26:B5:05:5E:94:F6:81:93:60:C3:E5:B2:BA:D6:5D:3E:88" />
+
+    <!-- ZUIP-5231,ZUIP-16738, grant permission to Launcher  liuzhi4,20181226 , package name : com.zui.launcher-->
+    <allow-permission name="android.permission.DEVICE_POWER:android.permission.REMOVE_TASKS" signature="B7:72:D8:8D:38:BF:2A:4A:E2:21:A5:1C:5B:62:4D:A1:71:44:75:BD" />
+
+
+</permissions>

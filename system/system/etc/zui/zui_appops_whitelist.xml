@@ -1,0 +1,23 @@
+<appops-policy version="1">
+<white-app>
+  <except name="get_installed_app" pkg="com.google.android.installpackageswhitelist.gts"/>
+</white-app>
+<keyguard-window>
+  <item pkg="com.ss.android.article.news" component="com.ss.android.lockscreen_wrapper.NoViewLockScreenActivity"/>
+  <item pkg="com.jiongji.andriod.card" component="com.baicizhan.client.wordlock.activity.WordLockClient"/>
+  <item pkg="com.tencent.qqmusic" component="com.tencent.qqmusic.business.lockscreen.LockScreenActivity"/>
+  <item pkg="com.netease.cloudmusic" component="com.netease.cloudmusic.activity.LockScreenActivity"/>
+</keyguard-window>
+<cts-app>
+  <pkg name="android.backup.permission"/>
+  <pkg name="android.backup.app"/>
+  <pkg name="android.backup.kvapp"/>
+  <pkg name="com.android.app"/>
+  <pkg name="android.app.stubs"/>
+  <pkg name="com.android.test.cantsavestate"/>
+  <pkg name="android.nativemedia.aaudio"/>
+  <pkg name="com.android.compatibility.common.deviceinfo"/>
+  <pkg name="android.tradefed.contentprovider"/>
+  <pkg name="com.android.tradefed.utils.wifi"/>
+</cts-app>
+</appops-policy>

@@ -1,0 +1,16 @@
+# Notice:
+#    1. The name of this "xxx.kl" file is "double-tap-screen".
+#       MUST Keep the name same as what defined in
+#       [kernel/msm-4.14/drivers/input/touchscreen/synaptics_dsx/synaptics_dsx_core.c].
+#       {
+#           input_dev->name = "double-tap-screen";
+#       }
+#    2. MUST Keep the value(ScanCode) same as what used in
+#       [kernel/msm-4.14/drivers/input/touchscreen/synaptics_dsx/synaptics_dsx_core.c].
+#       {
+#           // "KEY_FINANCE" is "219" which is defined in [input.h]
+#           input_event(hall_data->input_dev, EV_KEY, KEY_FINANCE, 1);
+#       }
+# Reuse the "synaptics_dsx_core.c" source code.
+
+key 219 DOUBLE_TAP_SCREEN

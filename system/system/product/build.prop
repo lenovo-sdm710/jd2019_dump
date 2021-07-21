@@ -1,0 +1,43 @@
+
+
+#
+# from device/lenovo/jd2019/product.prop
+#
+#
+# system.prop for zippo
+#
+
+# locale config
+persist.sys.timezone=Asia/Shanghai
+persist.sys.language=zh
+persist.sys.country=CN
+ro.product.locale.language=zh
+ro.product.locale.region=CN
+
+ro.product.display=Lenovo Z5s
+ro.zuk.product.market=Lenovo Z5s
+
+#usb config for secure code *#*#33284#*#
+persist.zui.usb.qmi=diag,serial_cdev,rmnet,adb
+persist.zui.usb.rndis=rndis,serial_cdev,diag,adb
+#usb diag port debug
+persist.sys.build.inter.zui=true
+#L
+
+ro.boot.hardware.sku=2018CP7024
+
+#add OTA model
+ro.config.zuk.cpuinfo=710_8_2.2
+ro.product.ota.model=Lenovo78071_Q_ST
+ro.external.version.code=11.5.132
+ro.product.sw.internal.version=L78071_SECURE_USER_11.5.132_ST_200620
+# end of device/lenovo/jd2019/product.prop
+#
+# ADDITIONAL PRODUCT PROPERTIES
+#
+ro.build.characteristics=nosdcard
+ro.com.google.clientidbase=android-lenovo
+ro.com.google.clientidbase.ms=android-lenovo
+ro.com.google.clientidbase.am=android-lenovo
+ro.com.google.clientidbase.gmm=android-lenovo
+ro.com.google.clientidbase.yt=android-lenovo

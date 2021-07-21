@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PMConfig model="JD19" version="20190311">
+    <Prop name = "sys.max_allowed_frame_drop_cnt" value = "5"></Prop>
+
+    <!-- 需要监控的状态节点定义。
+         状态节点文件目录不固定，需要通过扫描指定目录，根据标记文件内容，找到节点所在目录
+         name : 节点名称
+         rootpath : 节点搜索的根目录
+         statefilename : 状态节点文件名
+         typefilename : 标记类型的文件名
+         typevalue : 标记字符串
+         maxdeepth : 最大搜索子目录深度 -->
+    <StateFile name = "thermal.cooling_dev.cpu"
+        rootpath = "/sys/class/thermal"
+        statefilename = "cur_state"
+        typefilename="type"
+        typevalue="thermal-cpufreq-7"
+        maxdeepth="1">
+    </StateFile>
+    <StateFile name = "thermal.cooling_dev.gpu"
+        rootpath = "/sys/class/thermal"
+        statefilename = "cur_state"
+        typefilename="type"
+        typevalue="thermal-devfreq-0"
+        maxdeepth="1">
+    </StateFile>
+    <StateFile name = "thermal.thermal_zone"
+        rootpath = "/sys/class/thermal"
+        statefilename = "temp"
+        typefilename="type"
+        typevalue="cpuss-0-usr"
+        maxdeepth="1">
+    </StateFile>
+
+    <BoostTypeList>
+        <!--
+        <Item name = "DEFAULT">
+            <maxBigCore>1401600</maxBigCore>
+            <maxLittleCore>1113600</maxLittleCore>
+        </Item>
+        -->
+        <!--
+        <Item name = "DEFAULT_CPUINTENSIVE">
+            <maxBigCore>1094000</maxBigCore>
+            <maxLittleCore>1401000</maxLittleCore>
+        </Item>
+        -->
+        <Item name = "Full">
+            <minBigCore>2208000</minBigCore>
+            <minLittleCore>1708800</minLittleCore>
+        </Item>
+        <Item name = "Game">
+            <minBigCore>2208000</minBigCore>
+            <minLittleCore>1708800</minLittleCore>
+        </Item>
+        <Item name = "LowPower">
+            <maxBigCore>1363200</maxBigCore>
+            <maxLittleCore>1209600</maxLittleCore>
+        </Item>
+    </BoostTypeList>
+
+    <!-- for some special packages -->
+    <!--
+    <PackageList>
+        <Item name = "com.tencent.tmgp.sgame">
+            <minBigCore>2016000</minBigCore>
+            <minLittleCore>2016000</minLittleCore>
+        </Item>
+    </PackageList>
+    -->
+
+    <!-- for Tencent -->
+    <!-- available freq -->
+    <!-- big :    300000 652800 825600 979200 1132800 1363200 1536000 1747200 1843200 1996800 2054400 2169600 2208000 -->
+    <!-- little : 300000 576000 748800 998400 1209600 1324800 1516800 1612800 1708800 -->
+    <TAssistentCPULevel>
+        <Item name = "0">  <!-- default freq -->
+            <!-- use system default -->
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+        <!-- Item name 1 to 5 对应腾讯游戏的CPU级别-->
+        <Item name = "1">
+            <maxBigCore>979200</maxBigCore>
+            <maxLittleCore>998400</maxLittleCore>
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+        <Item name = "2">
+            <maxBigCore>1363200</maxBigCore>
+            <maxLittleCore>1209600</maxLittleCore>
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+        <Item name = "3">
+            <minBigCore>1363200</minBigCore>
+            <minLittleCore>1209600</minLittleCore>
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+        <Item name = "4">
+            <minBigCore>1996800</minBigCore>
+            <minLittleCore>1516800</minLittleCore>
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+        <Item name = "5">
+            <minBigCore>2208000</minBigCore>
+            <minLittleCore>1708800</minLittleCore>
+            <ThermalConfig>101</ThermalConfig>
+        </Item>
+    </TAssistentCPULevel>
+
+    <TAssistentCPUCore>
+        <Core id = "0" type = "LITTLE"/>
+        <Core id = "1" type = "LITTLE"/>
+        <Core id = "2" type = "LITTLE"/>
+        <Core id = "3" type = "LITTLE"/>
+        <Core id = "4" type = "LITTLE"/>
+        <Core id = "5" type = "LITTLE"/>
+        <Core id = "6" type = "BIG"/>
+        <Core id = "7" type = "BIG"/>
+    </TAssistentCPUCore>
+
+    <!-- available freq -->
+    <!-- gpu : 180000 267000 355000 430000 504000 -->
+    <TAssistentGPULevel>
+        <Item name = "0">
+            <!-- use system default -->
+        </Item>
+        <!-- Item name 1 to 5 对应腾讯游戏的GPU级别-->
+        <Item name = "1">
+            <maxFreq>180000</maxFreq>
+            <maxPowerLevel>0</maxPowerLevel>
+        </Item>
+        <Item name = "2">
+            <maxFreq>267000</maxFreq>
+            <maxPowerLevel>0</maxPowerLevel>
+        </Item>
+        <Item name = "3">
+            <minFreq>355000</minFreq>
+            <minPowerLevel>0</minPowerLevel>
+        </Item>
+        <Item name = "4">
+            <minFreq>430000</minFreq>
+            <minPowerLevel>0</minPowerLevel>
+        </Item>
+        <Item name = "5">
+            <minFreq>504000</minFreq>
+            <minPowerLevel>0</minPowerLevel>
+        </Item>
+    </TAssistentGPULevel>
+</PMConfig>
